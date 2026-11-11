@@ -482,3 +482,5 @@ MIT
 **Bash is all you need. Real agents are all the universe needs.**
 
 **This is not "copy the source code." This is "grasp the key designs and build it yourself."**
+
+*Test note: this line was added to verify the README update workflow through the new repository path.*
