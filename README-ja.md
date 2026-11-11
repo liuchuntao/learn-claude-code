@@ -392,6 +392,32 @@ learn-claude-code/
   tests/
 ```
 
+## 技術スタック
+
+コースコードは依存を意図的に軽く保ち、Agent フレームワークを介さずモデル API を直接呼び出す。Web プラットフォームは独自のスタックを使う。
+
+### コースの実行環境
+
+| レイヤー | 技術 |
+|---|---|
+| 言語 | Python 3.11+ |
+| LLM 接続 | Anthropic Python SDK（`anthropic`）。Messages API と tool use を使用し、`ANTHROPIC_BASE_URL` で Anthropic 互換プロバイダーにも接続可能 |
+| 設定 | `python-dotenv` で `.env` を読み込み、PyYAML でスキルとメモリのメタデータを解析 |
+| 並行処理 | 標準ライブラリの `threading`、`asyncio`、`subprocess` |
+| テストと CI | `pytest` smoke tests + GitHub Actions |
+
+### Web プラットフォーム
+
+| レイヤー | 技術 |
+|---|---|
+| フレームワーク | Next.js 16（App Router） |
+| UI | React 19 + TypeScript 5 |
+| スタイル | Tailwind CSS 4 |
+| コンテンツパイプライン | unified、remark、rehype |
+| モーションとアイコン | Framer Motion、Lucide |
+| ツールチェーン | Node.js 20、npm、`tsx`（コンテンツ抽出） |
+| ホスティング | Vercel |
+
 ## 次のステップ -- 理解から出荷へ
 
 17 セッションを終えれば、Harness 工学の内部構造を理解できる。その知識を活かす 2 つの方法:
