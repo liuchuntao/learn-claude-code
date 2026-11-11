@@ -399,6 +399,34 @@ learn-claude-code/
 
 ---
 
+## Tech Stack
+
+The lesson code is intentionally dependency-light and calls the model API directly, with no agent framework in between. The web platform carries its own stack.
+
+### Course Runtime
+
+| Layer | Technology |
+|---|---|
+| Language | Python 3.11+ |
+| LLM access | Anthropic Python SDK (`anthropic`) with the Messages API and tool use; Anthropic-compatible providers via `ANTHROPIC_BASE_URL` |
+| Configuration | `python-dotenv` for `.env`; PyYAML for skill and memory metadata |
+| Concurrency | Standard library `threading`, `asyncio`, and `subprocess` |
+| Tests and CI | `pytest` smoke tests on GitHub Actions |
+
+### Web Platform
+
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 16 (App Router) |
+| UI | React 19 and TypeScript 5 |
+| Styling | Tailwind CSS 4 |
+| Content pipeline | unified, remark, and rehype |
+| Motion and icons | Framer Motion and Lucide |
+| Tooling | Node.js 20, npm, and `tsx` for content extraction |
+| Hosting | Vercel |
+
+---
+
 ## What's Next
 
 After 17 lessons, you understand harness engineering from the inside out. Two paths to turn that knowledge into product:

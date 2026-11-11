@@ -417,6 +417,32 @@ learn-claude-code/
   tests/
 ```
 
+## 技术栈
+
+课程代码刻意保持轻量依赖，直接调用模型 API，中间没有 Agent 框架。Web 平台使用独立的技术栈。
+
+### 课程运行时
+
+| 层面 | 技术 |
+|---|---|
+| 语言 | Python 3.11+ |
+| LLM 接入 | Anthropic Python SDK（`anthropic`），使用 Messages API 与工具调用；通过 `ANTHROPIC_BASE_URL` 接入 Anthropic 兼容供应商 |
+| 配置 | `python-dotenv` 读取 `.env`；PyYAML 解析技能与记忆的元数据 |
+| 并发 | 标准库 `threading`、`asyncio`、`subprocess` |
+| 测试与 CI | `pytest` smoke tests + GitHub Actions |
+
+### Web 平台
+
+| 层面 | 技术 |
+|---|---|
+| 框架 | Next.js 16（App Router） |
+| UI | React 19 + TypeScript 5 |
+| 样式 | Tailwind CSS 4 |
+| 内容管线 | unified、remark、rehype |
+| 动效与图标 | Framer Motion、Lucide |
+| 工具链 | Node.js 20、npm、`tsx`（内容抽取） |
+| 托管 | Vercel |
+
 ## 学完之后 -- 从理解到落地
 
 17 个课程走完, 你已经从内到外理解了 harness 工程的运作原理。两种方式把知识变成产品:
